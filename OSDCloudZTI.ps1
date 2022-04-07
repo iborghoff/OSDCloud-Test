@@ -24,12 +24,7 @@ function Start-DeploymentMenu {
         }
         1 { 
             # Start OSDCloudGUI
-            do {
-                Start-Sleep 1
-            } while (
-                Start-OSDCloudGUI
-            )
-            break
+            Start-OSDCloudGUI
         }
         2 { 
             # Restart
