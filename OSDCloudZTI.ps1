@@ -25,7 +25,7 @@ function Start-DeploymentMenu {
         1 { 
             # Start OSDCloudGUI
             Start-OSDCloudGUI
-            Break
+            return 1
         }
         2 { 
             # Restart
@@ -36,4 +36,10 @@ function Start-DeploymentMenu {
     }
 }
 
-Start-DeploymentMenu
+$return = Start-DeploymentMenu 
+
+switch ($return) {
+    0 {}
+    1 {Start-DeploymentMenu}
+    2 {}
+}
