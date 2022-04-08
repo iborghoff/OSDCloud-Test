@@ -14,7 +14,7 @@ function Start-DeploymentMenu {
     switch ($result) {
         0 { 
             # Start OSDCloud Process
-            Write-Host -ForegroundColor Cyan "Starting OSDCloud"
+            Write-Host -ForegroundColor Cyan "Starting OSDCloud ZTI"
             Start-OSDCloud -OSLanguage en-us -OSBuild 21H1 -OSEdition Enterprise -ZTI
     
             # Restart
@@ -23,7 +23,8 @@ function Start-DeploymentMenu {
             wpeutil reboot
         }
         1 { 
-            # Start OSDCloudGUI
+            # Start OSDCloud UI
+            Write-Host -ForegroundColor Cyan "Starting OSDCloud UI"
             Start-OSDCloud
         }
         2 { 
