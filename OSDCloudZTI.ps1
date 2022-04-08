@@ -6,9 +6,9 @@ Write-Host -ForegroundColor Yellow "Script version $scriptverion"
 function Start-DeploymentMenu {
     $title = ''
     $question = 'Please choose a deployment option:'
-    $zti = [ChoiceDescription]::new('&ZTI', 'Zero Touch Install - This is fully automated without any prompts.')
-    $gui = [ChoiceDescription]::new('&GUI', 'GUI Install - A UI to choose install options.')
-    $quit = [ChoiceDescription]::new('&Quit', 'Quit and restart the device.')
+    $zti = [ChoiceDescription]::new('&ZTI', 'Zero Touch Install - Fully automated install without any prompts.')
+    $gui = [ChoiceDescription]::new('&UI', 'UI Install - A UI to choose install options.')
+    $quit = [ChoiceDescription]::new('&Quit', 'Quit and restart device.')
     $options = [ChoiceDescription[]]($zti, $gui, $quit)
     $result = $host.ui.PromptForChoice($title, $question, $options, 0)
     switch ($result) {
@@ -24,8 +24,7 @@ function Start-DeploymentMenu {
         }
         1 { 
             # Start OSDCloudGUI
-            Start-OSDCloudGUI
-            return 1
+            Start-OSDCloud
         }
         2 { 
             # Restart
@@ -36,10 +35,4 @@ function Start-DeploymentMenu {
     }
 }
 
-$return = Start-DeploymentMenu 
-
-switch ($return) {
-    0 {}
-    1 {Start-DeploymentMenu}
-    2 {}
-}
+Start-DeploymentMenu 
