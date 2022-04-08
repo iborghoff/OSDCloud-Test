@@ -25,6 +25,7 @@ function Start-DeploymentMenu {
         1 { 
             # Start OSDCloudGUI
             Start-OSDCloudGUI
+            Break
         }
         2 { 
             # Restart
